@@ -1,10 +1,10 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory=$false)]
-    [string]$SourceFolder = "G:\Other computers\MINI\#FILMS\",
+    [string]$SourceFolder = "E:\#FILMS\",
 
     [Parameter(Mandatory=$false)]
-    [string]$DestFolder = "E:\#FILMS\",
+    [string]$DestFolder = "G:\Other computers\MINI\#FILMS\",
 
     [Parameter(Mandatory=$false)]
     [string]$LogDir = "C:\Logs\PlexSync"
@@ -20,9 +20,9 @@ if (-not (Test-Path $LogDir)) {
 }
 
 $timestamp      = Get-Date -Format "yyyyMMdd_HHmmss"
-$logFile        = Join-Path $LogDir "downloadToHdd_$timestamp.log"
-$missingDirFile = Join-Path $LogDir "dirsMissingOnHDD_$timestamp.txt"
-$missingFileFile= Join-Path $LogDir "notOnHdd_$timestamp.txt"
+$logFile        = Join-Path $LogDir "uploadToGDrive_$timestamp.log"
+$missingDirFile = Join-Path $LogDir "dirsMissingOnGDrive_$timestamp.txt"
+$missingFileFile= Join-Path $LogDir "notInGoogleDrive_$timestamp.txt"
 
 function Write-Log {
     param([string]$Message, [string]$Level = "INFO")
@@ -41,7 +41,7 @@ $destLen = $DestFolder.Length
 # Main
 # ---------------------------------------------------------------------------
 try {
-    Write-Log "=== downloadToHdd started ==="
+    Write-Log "=== uploadToGDrive started ==="
     Write-Log "Source : $SourceFolder"
     Write-Log "Dest   : $DestFolder"
 
@@ -98,7 +98,7 @@ try {
         Write-Log "No missing files."
     }
 
-    Write-Log "=== downloadToHdd completed successfully ==="
+    Write-Log "=== uploadToGDrive completed successfully ==="
     exit 0
 
 } catch {
