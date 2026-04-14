@@ -75,10 +75,12 @@ try {
     Write-Log "Scanning files..."
 
     $srcFiles  = [System.IO.Directory]::EnumerateFiles($SourceFolder, '*', [System.IO.SearchOption]::AllDirectories) |
-                     ForEach-Object { $_.Substring($srcLen) }
+                 Where-Object { $_ -notlike '*.ini' } |
+                 ForEach-Object { $_.Substring($srcLen) }
 
-    $destFiles = [System.IO.Directory]::EnumerateFiles($DestFolder, '*', [System.IO.SearchOption]::AllDirectories) |
-                     ForEach-Object { $_.Substring($destLen) }
+	$destFiles = [System.IO.Directory]::EnumerateFiles($DestFolder, '*', [System.IO.SearchOption]::AllDirectories) |
+                 Where-Object { $_ -notlike '*.ini' } |
+                 ForEach-Object { $_.Substring($destLen) }
 
     $missingFiles = Compare-Object -ReferenceObject $srcFiles -DifferenceObject $destFiles |
                         Where-Object { $_.SideIndicator -eq '<=' } |
