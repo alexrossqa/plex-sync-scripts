@@ -15,7 +15,6 @@ This may not be a common need, but I travel frequently between two domestic loca
 
 **How does it work?:**
 
-How does it work?
 Location A stores its media library on a local HDD. The file system is synced into Google Drive using uploadToGDrive.ps1, which checks for any folders or files present locally but missing 
 from the remote Google Drive location, and copies them across.
 
