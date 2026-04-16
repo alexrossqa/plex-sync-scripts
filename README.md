@@ -27,9 +27,11 @@ A polling script, Sync-AndWait.ps1, sits between the two operations. Rather than
 defined period, ensuring the sync is genuinely complete before the next operation begins.
 
 **Scripts**
-ScriptPurposeuploadToGDrive.ps1: Syncs local HDD → Google Drive
-downloadToHdd.ps1: Syncs Google Drive → local HDD
-Sync-AndWait.ps1: Polls a folder until file count stabilises
+| Script | Purpose |
+|---|---|
+| `uploadToGDrive.ps1` | Syncs local HDD → Google Drive |
+| `downloadToHdd.ps1` | Syncs Google Drive → local HDD |
+| `Sync-AndWait.ps1` | Polls a folder until file count stabilises |
 
 **Prerequisites**
 
