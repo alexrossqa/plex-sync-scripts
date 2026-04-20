@@ -1,4 +1,4 @@
-**plex-sync-scripts**
+# plex-sync-scripts
 
 **What does it do?**
 
